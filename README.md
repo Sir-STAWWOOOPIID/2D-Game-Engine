@@ -16,6 +16,8 @@ This first release includes basic object creation, movement, and rendering—per
 - Functions to **move, position, recolor, and delete objects**.
 - Built-in **logging system** for debugging.
 - Minimal setup—just run the executable and start scripting!
+- Creates a Projects folder in the same root
+- You can even use a seperate file editor for the scripts
 
 ---
 
