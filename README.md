@@ -19,6 +19,21 @@ This first release includes basic object creation, movement, and rendering—per
 
 ---
 
+## 🗎 Info:
+- Used **[Ralib](https://www.raylib.com)** for engine design.
+- Used **[Python](https://www.python.org)** for an **API-like** python text editor.
+- Download gcc **[Here](https://sourceforge.net/projects/mingw-w64)**.
+
+---
+
+## 📦 Compilation
+
+This project was compiled using **GCC**. Example command:
+
+```bash
+gcc -IC:\raylib\raylib\src -IC:\Python313\include -LC:\raylib\raylib\src -LC:\Python313\libs -o 2Deditor.exe main.c -lraylib -lpython313 -lopengl32 -lgdi32 -lwinmm
+```
+
 ## 📜 Python API Reference
 Here are the main functions you can use in your game scripts:
 
@@ -36,3 +51,22 @@ create_rect(<name>, <x>, <y>, <size>, <r>, <g>, <b>)
 delete_obj(<name>)
 
 log_message(<message>)
+```
+
+---
+
+## Active Commands
+
+* `addCircle <name> <x> <y> <size> <r> <g> <b>`
+* `addRect <name> <x> <y> <size> <r> <g> <b>`
+* `move <name> <x> <y>`
+* `color <name> <r> <g> <b>`
+* `update <project name>`
+* `delete <name>`
+* `set <variable name> <value>`
+* `NewScript <name>`
+* `NewPython <name>`
+* `RunScript <script>`
+* `RunPython <name>`
+
+---
