@@ -37,7 +37,7 @@ gcc -IC:\raylib\raylib\src -IC:\Python313\include -LC:\raylib\raylib\src -LC:\Py
 ## 📜 Python API Reference
 Here are the main functions you can use in your game scripts:
 
-```diff
+```html
 move_object(<name>, <x>, <y>)
 
 set_position(<name>, <x>, <y>)
@@ -57,7 +57,8 @@ log_message(<message>)
 
 ## 💻 Active Commands
 
-* `addCircle <name> <x> <y> <size> <r> <g> <b>`
+* `addCircle <name> <x> <y> <size> <r> <g> <b>`'
+
 * `addRect <name> <x> <y> <size> <r> <g> <b>`
 * `move <name> <x> <y>`
 * `color <name> <r> <g> <b>`
