@@ -55,7 +55,7 @@ log_message(<message>)
 
 ---
 
-## Active Commands
+## 💻 Active Commands
 
 * `addCircle <name> <x> <y> <size> <r> <g> <b>`
 * `addRect <name> <x> <y> <size> <r> <g> <b>`
