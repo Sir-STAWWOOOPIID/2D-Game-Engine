@@ -1,4 +1,4 @@
-# 🎮 2D Game Engine v1.0.0
+# 🎮 2D Game Engine v1.0.1
 
 A lightweight and beginner-friendly **2D game engine** written in C with Python scripting support.  
 This first release includes basic object creation, movement, and rendering—perfect for small projects and learning game development fundamentals.  
@@ -6,8 +6,7 @@ This first release includes basic object creation, movement, and rendering—per
 ---
 
 ## 🚀 Download
-- 👉 [**Get the latest release (v1.0.0)**](https://github.com/Sir-STAWWOOOPIID/2D-Game-Engine/releases/download/1.0.0/game.exe)
-- ⚠️ Warning, this exe ***only*** works if you have python installed in your local disk C:
+- 👉 [**Get the latest release (v1.0.1)**](https://github.com/Sir-STAWWOOOPIID/2D-Game-Engine/releases/download/1.0.0/game_engine.exe)
 
 ---
 
