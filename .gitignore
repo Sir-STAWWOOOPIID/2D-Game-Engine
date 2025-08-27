@@ -1,0 +1,60 @@
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+build/
+bin/
+obj/
+*.exe
+*.dll
+*.lib
+*.pdb
+*.ipch
+*.aps
+*.ncb
+*.opendb
+*.tlog
+*.log
+*.cache
+*.ilk
+*.idb
+*.sbr
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+
+# vcpkg
+vcpkg_installed/
+vcpkg/buildtrees/
+vcpkg/packages/
+vcpkg/downloads/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS-specific
+Thumbs.db
+.DS_Store
+
+# Others
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.swn
