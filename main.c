@@ -1,5 +1,5 @@
 #include <raylib.h>
-#include "raymath.h"
+#include <raymath.h>
 #include <Python.h>
 #include <stdio.h>
 #include <string.h>
@@ -21,6 +21,11 @@
 #define MAX_OPEN_EDITORS 16
 #define VISIBLE_LINES 20
 #define MAX_VARIABLES 64
+
+// Define PI if not already defined
+#ifndef PI
+#define PI 3.14159265358979323846f
+#endif
 
 typedef enum { SHAPE_CIRCLE=0, SHAPE_RECT=1 } ShapeType;
 
@@ -805,8 +810,12 @@ int main(void){
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(1200,800,"2D Game Engine with Python Integration");
     SetTargetFPS(60);
-    // Load custom font
+    // Load custom font (try multiple paths)
     Font customFont = LoadFont("C:/Fonts/Codey/static/SourceCodePro-Bold.ttf");
+    if (customFont.texture.id == 0) {
+        // Try alternative paths
+        customFont = LoadFont("./fonts/SourceCodePro-Bold.ttf");
+    }
     if (customFont.texture.id == 0) {
         // Fallback to default if font fails to load
         customFont = GetFontDefault();

@@ -1,75 +1,160 @@
-# 🎮 2D Game Engine v1.0.1
+# 2D Game Engine with Python Integration
 
-A lightweight and beginner-friendly **2D game engine** written in C with Python scripting support.  
-This first release includes basic object creation, movement, and rendering—perfect for small projects and learning game development fundamentals.  
+A powerful 2D game engine built with raylib and Python scripting support.
 
----
+## Features
 
-## 🚀 Download
-- 👉 [**Get the latest release (v1.0.1)**](https://github.com/Sir-STAWWOOOPIID/2D-Game-Engine/releases/download/1.0.0/game_engine.exe)
+- **Visual Editor**: Drag-and-drop game object creation
+- **Python Scripting**: Write game logic in Python
+- **Custom Scripting Language**: Built-in scripting for simple operations
+- **Real-time Preview**: See changes instantly
+- **Project Management**: Save and load game projects
+- **Syntax Highlighting**: Full Python and custom script support
 
----
+## Quick Start Options
 
-## 🧩 Features
-- Simple **Python scripting API** for creating and controlling objects.
-- Support for **rectangles** and **circles** with custom size and color.
-- Functions to **move, position, recolor, and delete objects**.
-- Built-in **logging system** for debugging.
-- Minimal setup—just run the executable and start scripting!
-- Creates a Projects folder in the same root
-- You can even use a seperate file editor for the scripts
-
----
-
-## 🗎 Info:
-- Used **[Ralib](https://www.raylib.com)** for engine design.
-- Used **[Python](https://www.python.org)** for an **API-like** python text editor.
-- Download gcc **[Here](https://sourceforge.net/projects/mingw-w64)**.
-
----
-
-## 📦 Compilation
-
-This project was compiled using **GCC**. Example command:
+### Option 1: Simple MSYS2 Build (Recommended - Easiest)
+**Prerequisites:** [MSYS2](https://www.msys2.org/) (includes GCC, raylib, Python)
 
 ```bash
-gcc -IC:\raylib\raylib\src -IC:\Python313\include -LC:\raylib\raylib\src -LC:\Python313\libs -o 2Deditor.exe main.c -lraylib -lpython313 -lopengl32 -lgdi32 -lwinmm
+# 1. Install MSYS2 from https://www.msys2.org/
+# 2. Add C:\msys64\mingw64\bin to your PATH
+# 3. Clone and build:
+git clone https://github.com/yourusername/2D-Game-Engine.git
+cd 2D-Game-Engine
+build-simple.bat
 ```
 
-## 📜 Python API Reference
-Here are the main functions you can use in your game scripts:
+### Option 2: vcpkg with MinGW (Advanced)
+**Prerequisites:** MSYS2, [CMake](https://cmake.org/download/), [Git](https://git-scm.com/)
 
-```html
-move_object(<name>, <x>, <y>)
+```bash
+# 1. Setup vcpkg environment
+setup-mingw.bat
 
-set_position(<name>, <x>, <y>)
-
-set_color(<name>, <r>, <g>, <b>)
-
-create_circle(<name>, <x>, <y>, <size>, <r>, <g>, <b>)
-
-create_rect(<name>, <x>, <y>, <size>, <r>, <g>, <b>)
-
-delete_obj(<name>)
-
-log_message(<message>)
+# 2. Build the project
+build-mingw.bat
 ```
 
----
+### Option 3: vcpkg with Visual Studio (Windows Native)
+**Prerequisites:** [Visual Studio](https://visualstudio.microsoft.com/), [CMake](https://cmake.org/download/), [Git](https://git-scm.com/)
 
-## 💻 Active Commands
+```bash
+# 1. Setup vcpkg environment
+setup.bat
 
-* `addCircle <name> <x> <y> <size> <r> <g> <b>`'
+# 2. Build the project
+build.bat
+```
 
-* `addRect <name> <x> <y> <size> <r> <g> <b>`
-* `move <name> <x> <y>`
-* `color <name> <r> <g> <b>`
-* `update <project name>`
-* `delete <name>`
-* `set <variable name> <value>`
-* `NewScript <name>`
-* `NewPython <name>`
-* `RunScript <script>`
-* `RunPython <name>`
+## Alternative Build Methods
 
----
+### Method 1: Standalone Dependencies (Old Method)
+If you prefer to use standalone installations:
+
+```bash
+# Install raylib and Python separately, then use:
+make win RAYLIB_ROOT=C:/raylib/raylib PYROOT=C:/Python313
+```
+
+### Method 2: MSYS2 MinGW64
+```bash
+# Install MSYS2, then:
+pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-raylib mingw-w64-x86_64-python
+mingw32-make
+```
+
+## Usage
+
+### Basic Commands
+- `addCircle name x y size r g b` - Create a circle
+- `addRect name x y size r g b` - Create a rectangle
+- `move name dx dy` - Move an object
+- `color name r g b` - Change object color
+- `NewScript name` - Create a new script file
+- `NewPython name` - Create a new Python script
+- `RunScript name` - Execute a script
+- `RunPython name.py` - Execute a Python script
+
+### Python API
+```python
+# Move an object
+move_object("player", 10, 0)
+
+# Set position
+set_position("enemy", 100, 200)
+
+# Change color
+set_color("player", 255, 0, 0)
+
+# Create objects
+create_circle("bullet", 50, 50, 5, 255, 255, 0)
+create_rect("wall", 200, 100, 20, 128, 128, 128)
+
+# Log messages
+log_message("Game started!")
+```
+
+### Custom Scripting Language
+```
+# Variables
+speed = 5.0
+angle = 0.0
+
+# Object manipulation
+move player speed 0
+setPos enemy 100 200
+setColor player 255 0 0
+
+# Math expressions
+x = sin(angle) * 100
+y = cos(angle) * 100
+```
+
+## Project Structure
+```
+2D-Game-Engine/
+├── main.c              # Main source code
+├── CMakeLists.txt      # CMake build configuration
+├── build.bat           # Windows build script
+├── build.ps1           # PowerShell build script
+├── Makefile            # Alternative make-based build
+├── Projects/           # Game projects directory
+│   └── Default/
+│       ├── main.game   # Project file
+│       └── scripts/    # Script files
+└── README.md           # This file
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **CMake not found**: Install CMake from https://cmake.org/download/
+2. **vcpkg integration failed**: Run `./vcpkg integrate install` as administrator
+3. **Python DLL missing**: The CMake build automatically copies the Python DLL
+4. **Build fails**: Ensure you have Visual Studio Build Tools installed
+
+### Getting Help
+- Check that all prerequisites are installed
+- Ensure vcpkg dependencies are properly installed
+- Try building in a clean directory
+- Check the build output for specific error messages
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test the build process
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [raylib](https://www.raylib.com/) - Game development library
+- [Python](https://www.python.org/) - Programming language
+- [vcpkg](https://github.com/Microsoft/vcpkg) - C++ package manager
