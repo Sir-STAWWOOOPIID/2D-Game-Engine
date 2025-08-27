@@ -16,13 +16,11 @@ A cross-platform 2D game engine built with [raylib](https://www.raylib.com/) and
 ├── src/                # Source files (main.c, ...)
 ├── include/            # Header files (if any)
 ├── scripts/            # Build and setup scripts (setup.bat, build.ps1, ...)
-├── vcpkg/              # vcpkg (dependency manager)
 ├── build/              # Build output (ignored by git)
 ├── CMakeLists.txt      # CMake build configuration
 ├── vcpkg.json          # vcpkg manifest
 ├── .gitignore
 ├── README.md
-└── Projects/           # Game projects directory
 ```
 
 ## Prerequisites
