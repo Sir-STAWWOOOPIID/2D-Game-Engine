@@ -11,7 +11,9 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 # Source files
-add_executable(2d-game-engine src/main.c)
+add_executable(2d-game-engine src/main.c src/python_integration.c src/file_io.c)
+
+target_include_directories(2d-game-engine PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
 # Find raylib (via vcpkg)
 find_package(raylib CONFIG REQUIRED)
