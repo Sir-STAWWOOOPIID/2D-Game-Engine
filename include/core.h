@@ -1,26 +1,25 @@
 #ifndef CORE_H
 #define CORE_H
 
+#define _CRT_SECURE_NO_WARNINGS
+#define RAYLIB_NO_CONFLICT_WINDOWS
 #include <raylib.h>
-#include <stdbool.h>
-#include "engine_io.h"
 
-#define MAX_OBJECTS 128
-#define NAME_LEN    32
-#define LOG_CAP     3
-#define CMD_LEN     256
-#define MAX_SCRIPTS 64
-#define LINE_LEN    128
-#define MAX_OPEN_EDITORS 16
-#define VISIBLE_LINES 20
-#define MAX_VARIABLES 64
+// Shared constants
+#define NAME_LEN 32
+#define MAX_OBJECTS 100
+#define CMD_LEN 256
+#define LOG_CAP 100
+#define MAX_SCRIPTS 32
+#define MAX_OPEN_EDITORS 8
 
-#ifndef PI
-#define PI 3.14159265358979323846f
-#endif
+// Shape type
+typedef enum {
+    SHAPE_CIRCLE,
+    SHAPE_RECT
+} ShapeType;
 
-typedef enum { SHAPE_CIRCLE=0, SHAPE_RECT=1 } ShapeType;
-
+// Game object
 typedef struct {
     char name[NAME_LEN];
     Vector2 position;
@@ -30,22 +29,7 @@ typedef struct {
     bool selected;
 } GameObject;
 
-typedef struct {
-    char name[NAME_LEN];
-    float value;
-} Variable;
-
-// Use Script and ScriptEditor from engine_io.h
-// Color scheme
-extern const Color BG_DARK;
-extern const Color BG_MEDIUM;
-extern const Color BG_LIGHT;
-extern const Color ACCENT_BLUE;
-extern const Color ACCENT_GREEN;
-extern const Color ACCENT_RED;
-extern const Color ACCENT_ORANGE;
-extern const Color ACCENT_PURPLE;
-extern const Color TEXT_PRIMARY;
-extern const Color TEXT_SECONDARY;
+// Core functionality
+void AddLog(const char* fmt, ...);
 
 #endif // CORE_H

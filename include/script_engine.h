@@ -5,26 +5,25 @@
 #include "engine_io.h"
 #include <stdbool.h>
 
-// Expose scripts and scriptCount for other modules
-extern Script scripts[MAX_SCRIPTS];
+// Script editor state
+typedef struct {
+    char filename[NAME_LEN];
+    char* content;
+    int cursorPos;
+    bool dirty;
+} ScriptEditor;
+
+// Global script buffer
+extern char scripts[MAX_SCRIPTS][NAME_LEN];
 extern int scriptCount;
 
-// Variable system
-float GetVariable(const char* name);
+// Script engine functionality
+bool InitializePython(void);
+void FinalizePython(void);
 void SetVariable(const char* name, float value);
-
-// Script execution
-void ExecuteScriptLine(const char* line);
-void ExecuteScript(const char* scriptName);
-
-// Expression evaluation
-float EvaluateExpression(const char* expr);
-
-// Python integration
-#include "python_integration.h"
-
-// Script loading/saving
-void LoadScripts(const char* projectName);
-void SaveScript(ScriptEditor* ed);
+float GetVariable(const char* name);
+void ExecuteScript(const char* filename);
+void LoadScript(const char* filename, ScriptEditor* editor);
+void SaveScript(ScriptEditor* editor);
 
 #endif // SCRIPT_ENGINE_H

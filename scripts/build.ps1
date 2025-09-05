@@ -14,7 +14,11 @@ if (!(Test-Path "CMakeCache.txt")) {
 
 # Build (Release configuration)
 Write-Host "Building project..."
-cmake --build . --config Release
-
+$buildResult = cmake --build . --config Release 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "Build failed!" -ForegroundColor Red
+    Write-Host "Build output:" -ForegroundColor Yellow
+    $buildResult | Write-Host
+    exit $LASTEXITCODE
+}
 Write-Host "Build complete! Executable is in build/bin/Release/" -ForegroundColor Green
-Read-Host "Press Enter to continue"

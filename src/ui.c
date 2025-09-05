@@ -6,6 +6,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#define RAYLIB_NO_CONFLICT_WINDOWS
 #include <raylib.h>
 #include <raymath.h>
 #include <ctype.h>

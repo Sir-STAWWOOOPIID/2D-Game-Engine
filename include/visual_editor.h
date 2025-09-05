@@ -11,6 +11,10 @@ void DeleteGameObject(const char* name);
 void ClearSelection(void);
 bool PointInObject(Vector2 pt, GameObject* obj);
 
+// Access to object array
+int GetObjectCount(void);
+GameObject* GetObjects(void);
+
 // Dragging logic
 extern bool dragging;
 extern Vector2 dragOffset;
