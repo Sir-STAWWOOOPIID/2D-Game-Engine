@@ -2,15 +2,17 @@
 #include "../include/core.h"
 #include "../include/ui.h"
 #include "../include/visual_editor.h"
+#include "../include/python_integration.h"
+#include "../include/engine_io.h"
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
 #include <ctype.h>
 
-static Variable variables[MAX_VARIABLES];
-static int variableCount = 0;
-static Script scripts[MAX_SCRIPTS];
-static int scriptCount = 0;
+Variable variables[MAX_VARIABLES];
+int variableCount = 0;
+Script scripts[MAX_SCRIPTS];
+int scriptCount = 0;
 
 float GetVariable(const char* name) {
     for(int i = 0; i < variableCount; i++) {
@@ -76,11 +78,11 @@ void ExecuteScript(const char* scriptName) {
 }
 
 void LoadScripts(const char* projectName) {
-    // Stub: implement with engine_io if needed
+    scriptCount = LoadScriptsIO(projectName, scripts, MAX_SCRIPTS);
 }
 
 void SaveScript(ScriptEditor* ed) {
-    // Stub: implement with engine_io if needed
+    SaveScriptToProject("Default", ed->name, ed->lines, ed->lineCount);
 }
 
 bool InitializePython(void) { return true; }

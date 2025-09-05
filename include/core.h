@@ -3,6 +3,7 @@
 
 #include <raylib.h>
 #include <stdbool.h>
+#include "engine_io.h"
 
 #define MAX_OBJECTS 128
 #define NAME_LEN    32
@@ -34,23 +35,7 @@ typedef struct {
     float value;
 } Variable;
 
-typedef struct {
-    char name[NAME_LEN];
-    char lines[128][LINE_LEN];
-    int lineCount;
-    bool isScript;
-    bool isPython;
-} Script;
-
-typedef struct {
-    char name[NAME_LEN];
-    char lines[128][LINE_LEN];
-    int lineCount;
-    int scroll;
-    bool isScript;
-    bool isPython;
-} ScriptEditor;
-
+// Use Script and ScriptEditor from engine_io.h
 // Color scheme
 extern const Color BG_DARK;
 extern const Color BG_MEDIUM;

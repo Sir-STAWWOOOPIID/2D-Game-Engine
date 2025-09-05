@@ -4,8 +4,8 @@
 #include <string.h>
 #include <raylib.h>
 
-static GameObject objects[MAX_OBJECTS];
-static int objectCount = 0;
+GameObject objects[MAX_OBJECTS];
+int objectCount = 0;
 bool dragging = false;
 Vector2 dragOffset = {0};
 

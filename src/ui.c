@@ -2,12 +2,15 @@
 #include "../include/core.h"
 #include "../include/visual_editor.h"
 #include "../include/script_engine.h"
+#include "../include/engine_io.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <raylib.h>
 #include <raymath.h>
 #include <ctype.h>
+
+// scripts and scriptCount are now extern via script_engine.h
 
 ScriptEditor openEditors[MAX_OPEN_EDITORS];
 int openCount = 0;
@@ -69,7 +72,16 @@ void OpenScriptTab(const char* name) {
     ed->lines[0][0]='\0';
     ed->isScript = (strstr(name, ".script")!=NULL);
     ed->isPython = (strstr(name, ".py")!=NULL);
-    // TODO: Load script content if exists
+    // Load script content if exists
+    for(int i=0;i<scriptCount;i++) {
+        if(strcmp(scripts[i].name,name)==0) {
+            ed->lineCount=scripts[i].lineCount;
+            ed->isScript=scripts[i].isScript;
+            ed->isPython=scripts[i].isPython;
+            for(int j=0;j<scripts[i].lineCount;j++) strcpy(ed->lines[j], scripts[i].lines[j]);
+            break;
+        }
+    }
     activeEditor=openCount++;
     caretLine=0; caretCol=0;
     AddLog("Opened %s '%s'", ed->isPython?"Python script":(ed->isScript?"custom script":"file"), name);

@@ -15,6 +15,7 @@
 #include "../include/script_engine.h"
 #include "../include/ui.h"
 #include "../include/engine_io.h"
+#include "../include/python_integration.h"
 
 // --- Raylib and Third-Party Includes (after platform defines) ---
 #include <raylib.h>
@@ -28,6 +29,8 @@
 #include <direct.h>
 #include <math.h>
 #include <ctype.h>
+
+char currentProject[NAME_LEN] = "Default";
 
 // --- Local IO wrappers ---
 static void CreateDirIfNotExist_local(const char* path){ CreateDirIfNotExist(path); }
@@ -56,7 +59,7 @@ int main(void){
     AddObject("box",SHAPE_RECT,(Vector2){700,350},50,ACCENT_BLUE);
 
     CreateDirIfNotExist_local("./Projects/Default/scripts");
-    LoadScripts_local("Default");
+    LoadScripts_local(currentProject);
 
     SetVariable("speed", 5.0f);
     SetVariable("angle", 0.0f);

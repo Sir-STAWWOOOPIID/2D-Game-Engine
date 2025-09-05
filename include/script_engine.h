@@ -2,7 +2,12 @@
 #define SCRIPT_ENGINE_H
 
 #include "core.h"
+#include "engine_io.h"
 #include <stdbool.h>
+
+// Expose scripts and scriptCount for other modules
+extern Script scripts[MAX_SCRIPTS];
+extern int scriptCount;
 
 // Variable system
 float GetVariable(const char* name);
@@ -16,9 +21,7 @@ void ExecuteScript(const char* scriptName);
 float EvaluateExpression(const char* expr);
 
 // Python integration
-bool InitializePython(void);
-void ExecutePythonScript(const char* scriptName);
-void FinalizePython(void);
+#include "python_integration.h"
 
 // Script loading/saving
 void LoadScripts(const char* projectName);

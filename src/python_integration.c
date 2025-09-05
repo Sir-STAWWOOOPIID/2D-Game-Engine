@@ -12,6 +12,8 @@
 #endif
 
 #include <Python.h>
+#include "../include/python_integration.h"
+#include "../include/ui.h"
 #include <stdio.h>
 #include <string.h>
 
